@@ -1,7 +1,6 @@
 from flask import Flask,render_template,flash
-from flask_wtf import FlaskForm
-from wtforms import StringField,SubmitField
-from wtforms.validators import DataRequired
+from forms import ConatactForm
+from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime, timezone
 
 
@@ -11,42 +10,63 @@ app = Flask(__name__)
 #csrf token #hide when uploading to github
 app.config['SECRET_KEY'] = "my super secret key"
 
-#Create a User Class
-class UserForm(FlaskForm):
-    name = StringField("Name",validators=[DataRequired()])
-    email = StringField("Email",validators=[DataRequired()])
-    submit = SubmitField("Submit")
+#add database
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 
-#Create a Form Class
-class NamerForm(FlaskForm):
-    name = StringField("Whats your Name",validators=[DataRequired()])
-    submit = SubmitField("Submit")
+#initilize the database
+db = SQLAlchemy(app)
+
+# Message Database
+class Message(db.Model):
+    name = db.Column(db.String(100), nullable = False)
+    email = db.Column(db.String(100), nullable = False, unique = True)  
+    subject = db.Column(db.string(30), nullable = False, unique = True)
+    message = db.Colunm(db.Text(), nullable = False, unique = True)
+    date_added = db.Column(db.DateTime, default=datetime.now(timezone.utc))
+
+    #Create a string
+    def __repr__(self):
+        return '<Name %r>' % self.name
+
+# Blog Database
+class Blog(db.Model):
+    id = db.Column(db.Integer,primary_key=True)
+    title = db.Column(db.String(100), nullable = False)
+    date_added = db.Column(db.DateTime, default=datetime.now(timezone.utc))
+    desc = db.Column(db.Text, nullable = False)
+    content = db.Colunm(db.Text, nullable = False)
+
 
 @app.route('/')
 def index():
     return render_template("index.html")
 
-# localhost:5000/user/pullak
 @app.route('/blog')
 def blog(name):
     return render_template("blog.html",user_name=name)
 
+# Projects List
 @app.route('/projects')
-def projects(name):
-    return render_template("projects.html",user_name=name)
+def projects():
+    return render_template("projects.html")
 
 @app.route('/contact',methods=['GET','POST'])
 def contact():
-    name = None
-    form = NamerForm()
+    form = ConatactForm()
     if form.validate_on_submit():
-        name = form.name.data
+        msg = Message(name=form.name.data,email=form.email.data,subject=form.subject.data,message=form.message.data)
+        db.session.add(msg)
+        db.session.commit()
+        flash("Message Send Succesfully!!")
         form.name.data = ''
-        #flash msg
-        flash("Form Submitted Succesfully")
+        form.email.data = ''
+        form.subject.data = ''
+        form.message.data = ''
+    return render_template("contact.html", form=form)
 
-    return render_template('contact.html',name = name,form = form)
-
+@app.route('/admin')
+def admin():
+    
 
 #Custom Error Page
 
