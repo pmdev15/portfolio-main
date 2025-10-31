@@ -13,28 +13,28 @@ app.config['SECRET_KEY'] = "my super secret key"
 #add database
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 
-#initilize the database
+# #initilize the database
 db = SQLAlchemy(app)
 
 # Message Database
 class Message(db.Model):
     name = db.Column(db.String(100), nullable = False)
-    email = db.Column(db.String(100), nullable = False, unique = True)  
-    subject = db.Column(db.string(30), nullable = False, unique = True)
-    message = db.Colunm(db.Text(), nullable = False, unique = True)
+    email = db.Column(db.String(100), nullable = False,primary_key = True, unique = True)  
+    subject = db.Column(db.String(30), nullable = False, unique = True)
+    message = db.Column(db.Text(), nullable = False, unique = True)
     date_added = db.Column(db.DateTime, default=datetime.now(timezone.utc))
 
     #Create a string
     def __repr__(self):
         return '<Name %r>' % self.name
 
-# Blog Database
-class Blog(db.Model):
-    id = db.Column(db.Integer,primary_key=True)
-    title = db.Column(db.String(100), nullable = False)
-    date_added = db.Column(db.DateTime, default=datetime.now(timezone.utc))
-    desc = db.Column(db.Text, nullable = False)
-    content = db.Colunm(db.Text, nullable = False)
+# # Blog Database
+# class Blog(db.Model):
+#     id = db.Column(db.Integer,primary_key=True)
+#     title = db.Column(db.String(100), nullable = False)
+#     date_added = db.Column(db.DateTime, default=datetime.now(timezone.utc))
+#     desc = db.Column(db.Text, nullable = False)
+#     content = db.Colunm(db.Text, nullable = False)
 
 
 @app.route('/')
@@ -66,7 +66,7 @@ def contact():
 
 @app.route('/admin')
 def admin():
-    
+    return render_template("admin.html")
 
 #Custom Error Page
 

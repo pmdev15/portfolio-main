@@ -10,8 +10,7 @@
     <link rel="canonical" href="https://pullakmohapatra.io">
 
     <!-- Icons -->
-    <link rel="apple-touch-icon" href="/images/me.jpg">
-    <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" href="https://brennan.io/favicon.ico">
+    <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" href="">
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
@@ -24,10 +23,24 @@
 </head>
 
 <body>
-	<div id="content">{% block content %}{% endblock %}</div>
-    <div id="footer">
-        &copy; Copyright 2008 by <a href="http://domain.invalid/">you</a>.
-    </div>
+    <header>
+        <div id="header">
+            <!-- ===== NAVBAR ===== -->
+            <div class="nav-bar">
+                <a class="links" href="{{url_for('index')}}"><h2>Pullak Mohapatra</h2></a>
+                <a class="links" href="{{url_for('index')}}"><li>Home</li></a>
+                <a class="links" href="{{url_for('projects')}}"><li>projects</li></a>
+                <a class="links" href="{{url_for('blog')}}"><li>blog</li></a>
+                <a class="links" href="{{url_for('contact')}}"><li>contact</li></a>
+            </div>
+        </div>
+    </header>
+	<main>
+        <div id="content">{% block content %}{% endblock %}</div>
+    </main>
+    <footer>
+        <div id="footer"></div>
+    </footer>
 </body>
 
 </html>

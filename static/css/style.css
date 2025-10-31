@@ -4,5 +4,25 @@ h1 {
 }
 
 body{
-    background: #f4f4f4;
+    background: #fdf6e3;
+}
+p.important{
+    text-align: center;
+}
+div.name,div.nav-bar{
+    border-style: solid;
+    border-color: black;
+}
+
+a.links{
+    text-decoration: none;
+    font-family: cursive;
+    color: black;
+    display: inline-flex;
+}
+a.lniks :hover{
+    color: grey;
+}
+a.links :visited{
+    text-decoration: none;
 }
