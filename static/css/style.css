@@ -1,28 +1,36 @@
-h1 {
-    color: darkblue;
-    font-size: 50px;
-}
-
 body{
+    margin: 0;
     background: #fdf6e3;
 }
 p.important{
     text-align: center;
 }
-div.name,div.nav-bar{
-    border-style: solid;
-    border-color: black;
+div.nav-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 5%;
+    flex-wrap: wrap;
+    font-size: x-large;
 }
-
+span.links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+}
+a.name{
+    text-decoration: none;
+    font-family: cursive;
+    color: black;
+    padding-left: 1%;
+}
 a.links{
     text-decoration: none;
     font-family: cursive;
     color: black;
-    display: inline-flex;
+    /* padding-left: 15%; */
 }
-a.lniks :hover{
+a.links:hover{
     color: grey;
-}
-a.links :visited{
-    text-decoration: none;
 }

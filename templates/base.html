@@ -27,15 +27,18 @@
         <div id="header">
             <!-- ===== NAVBAR ===== -->
             <div class="nav-bar">
-                <a class="links" href="{{url_for('index')}}"><h2>Pullak Mohapatra</h2></a>
-                <a class="links" href="{{url_for('index')}}"><li>Home</li></a>
-                <a class="links" href="{{url_for('projects')}}"><li>projects</li></a>
-                <a class="links" href="{{url_for('blog')}}"><li>blog</li></a>
-                <a class="links" href="{{url_for('contact')}}"><li>contact</li></a>
+                <a class="name" href="{{url_for('index')}}">
+                    <h2>Pullak Mohapatra</h2>
+                </a>
+                <span class="links"><a class="links" href="{{url_for('index')}}">Home</a>
+                    <a class="links" href="{{url_for('projects')}}">projects</a>
+                    <a class="links" href="{{url_for('blog')}}">blog</a>
+                    <a class="links" href="{{url_for('contact')}}">contact</a>
+                </span>
             </div>
         </div>
     </header>
-	<main>
+    <main>
         <div id="content">{% block content %}{% endblock %}</div>
     </main>
     <footer>
