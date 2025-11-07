@@ -14,6 +14,10 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    {% block styles %}{% endblock %}
+
+    <!-- Scripts-->
+    <script src="{{url_for('static',filename='js/main.js')}}"></script> 
 
     <!-- Meta information -->
     <meta name="author" content="Pullak Mohapatra">
@@ -42,7 +46,11 @@
         <div id="content">{% block content %}{% endblock %}</div>
     </main>
     <footer>
-        <div id="footer"></div>
+        <div class="footer">
+            <footer class="page-footer">
+                <p>© Pullak Mohapatra | <a href="mailto:pullak@pmohapatra.com"
+                        target="_blank">pullak@pmohapatra.com </a></p>
+        </div>
     </footer>
 </body>
 

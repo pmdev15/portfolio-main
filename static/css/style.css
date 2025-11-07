@@ -1,36 +1,48 @@
-body{
+body {
     margin: 0;
     background: #fdf6e3;
 }
-p.important{
-    text-align: center;
-}
-div.nav-bar{
+
+div.nav-bar {
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding-right: 5%;
+    padding-left: 1%;
     flex-wrap: wrap;
     font-size: x-large;
 }
-span.links{
+
+span.links {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10%;
+    padding-right: 2%;
+    padding-left: 8%;
 }
-a.name{
+
+a.name {
     text-decoration: none;
     font-family: cursive;
     color: black;
     padding-left: 1%;
 }
-a.links{
+
+a.links {
     text-decoration: none;
     font-family: cursive;
     color: black;
-    /* padding-left: 15%; */
 }
-a.links:hover{
+
+a.links:hover {
     color: grey;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
 }

@@ -42,8 +42,8 @@ def index():
     return render_template("index.html")
 
 @app.route('/blog')
-def blog(name):
-    return render_template("blog.html",user_name=name)
+def blog():
+    return render_template("blog.html")
 
 # Projects List
 @app.route('/projects')

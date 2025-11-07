@@ -1,9 +1,52 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
 {% block content %}
-    <p class="important">
-      I’m a software engineer who also likes to cook, bake, and eat.<br/>
-       This is my infrequently-updated site, which contains some documentation of things I’ve done,<br/>
+<div class="content">
+    <aside>
+        <img class="image" src="{{url_for('static',filename='pics/blank.jpg')}}">
+        <section>
+            <h3>Who I am</h3>
+            <ul>
+                <li>Son and Brother</li>
+                <li>Based out of Odisha, India</li>
+                <li>Loves <span id="things"></span></li>
+            </ul>
+        </section>
+        <section>
+            <h3>What I do</h3>
+            <ul>
+                <li>Student</li>
+                <li>Competitive Programming</li>
+                <li>Software Development</li>
+            </ul>
+        </section>
+        <h3><a class="links" href="">Download Resume</a></h3>
+    </aside>
+    <h3>Me</h3>
+    <p class="content">
+        I’m an electrical engineer who also likes to cook, bake, and eat.<br />
+        This is my infrequently-updated site, which contains some documentation of things I’ve done,
         my resume, and some blog posts I’ve written.
     </p>
+    <h3>My Story</h3>
+    <p class="content">
+        Everyone who has seen the Ironman film wants to become Ironman.
+        I guess I am no different. And thus began my journey of becoming, what I think , the coolest
+        being in the world.<br>
+        While Exploring at an young age of 14 , I stumbled upon the world of computer programming
+        and it just blew my mind of the endless possiblity that you can do with it.
+        so here I am doing what I love and trying to make a small place in this whole wide world.
+    </p>
+    <h3>Featured Blog Post</h3>
+    <ul id="blog">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<div class="quote">It's not who I am underneath... but what I do, that defines me</div>
 {% endblock %}
