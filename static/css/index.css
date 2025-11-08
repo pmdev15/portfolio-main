@@ -38,3 +38,13 @@ ul{
     margin-top: 1%;
     justify-content: center;
 }
+
+a.download {
+    text-decoration: none;
+    font-family: cursive;
+    color: black;
+}
+
+a.download:hover {
+    color: grey;
+}
