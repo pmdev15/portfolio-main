@@ -1,5 +1,5 @@
 body {
-    font-family: cursive;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 
 div.content {
@@ -41,7 +41,6 @@ ul{
 
 a.download {
     text-decoration: none;
-    font-family: cursive;
     color: black;
 }
 

@@ -27,14 +27,14 @@ span.links {
 
 a.name {
     text-decoration: none;
-    font-family: cursive;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
     color: black;
     padding-left: 1%;
 }
 
 a.links {
     text-decoration: none;
-    font-family: cursive;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
     color: black;
 }
 
