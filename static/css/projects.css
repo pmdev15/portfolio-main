@@ -1,0 +1,63 @@
+body {
+    font-family: cursive;
+}
+
+div.site-content {
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    overflow: hidden;
+    /* display: block; */
+    /* float: left; */
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+#heading{
+    display: flex;
+    justify-content: center;
+}
+
+.project-image {
+    width: 250px;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    border-radius: 15%;
+    border-bottom: solid black;
+    margin-bottom: 5%;
+}
+
+.row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+    /* try all 4 of these: stretch, center, flex-start, flex-end */
+    gap: 5%;
+}
+
+.item {
+    /* box-sizing: border-box; */
+    border-style: solid;
+    border-radius: 10%;
+    padding: 0 0 1% 0;
+    margin-bottom: 5%;
+}
+
+a.github{
+    display: flex;
+    text-decoration: none;
+    font-family: cursive;
+    color: black;
+    margin-left: 5%;
+}
+
+a.github:hover {
+    color: grey;
+}
+.details{
+    margin: 0%;
+    font-size: large;
+    margin-left: 5%;
+}

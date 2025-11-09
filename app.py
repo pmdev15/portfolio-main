@@ -1,4 +1,4 @@
-from flask import Flask,render_template,flash
+from flask import Flask,render_template,flash,request
 from forms import ConatactForm
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime, timezone
@@ -54,7 +54,7 @@ def projects():
 def contact():
     form = ConatactForm()
     if form.validate_on_submit():
-        msg = Message(name=form.name.data,email=form.email.data,subject=form.subject.data,message=form.message.data)
+        msg = Message(name= request.form.get('name'),email=request.form.get('email'),subject=request.form.get('subject'),message=request.form.get('message'))
         db.session.add(msg)
         db.session.commit()
         flash("Message Send Succesfully!!")

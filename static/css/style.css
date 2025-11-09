@@ -45,4 +45,9 @@ a.links:hover {
 .footer{
     display: flex;
     justify-content: center;
+    text-decoration: none;
+}
+
+#foot-link{
+    text-decoration: none;
 }

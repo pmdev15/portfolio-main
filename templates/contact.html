@@ -1,33 +1,50 @@
 {% extends "base.html" %}
 {% block title %}Contact{% endblock %}
 {% block styles %}
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
 {% endblock %}
 {% block content %}
 
 {% for message in get_flashed_messages() %}
-    {{ message }}
+{{ message }}
 {% endfor %}
-
-{% if name %}
-    <h1> Hello {{name}} </h1>
-{% else %}
-    <h1>Whats your name</h1>
-    <br/>
-    <form method="POST">
-        {{ form.hidden_tag() }}
-
-        {{ form.name.label }}
-        {{ form.name() }}
-        {{ form.email.label }}
-        {{ form.email() }}
-        {{ form.subject.label }}
-        {{ form.subject() }}
-        {{ form.message.label }}
-        {{ form.message() }}
-        <br/>
-        {{ form.submit() }}
-    </form>
-{% endif %}
-    
+<h3 id="heading">Get In Touch</h3>
+<div class="site-content">
+    <aside id="msg">
+        <div>
+            Send a Message
+            <form method="POST">
+                {{ form.hidden_tag() }}
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="your.email@example.com" required><br>
+                <label for="subject">Subject</label><br>
+                <input type="text" id="subject" name="subject" placeholder="What's this about" required><br>
+                <label for="message">Message</label><br>
+                <textarea id="message" name="message" rows="7" cols="60" placeholder="Tell Your Mind!!!" required></textarea><br>
+                <button class="button" type="submit">Send Message</button>
+            </form>
+        </div>
+    </aside>
+    <aside>
+        <section>
+            <h3 id="head">Contact Information</h3>
+            <ul>
+                <li>Email<br><small><a class="links" href="mailto:pullak@pmohapatra.com"
+                            target="_blank">pullak@pmohapatra.com</a></small></li>
+                <li>PGP Key<br><small><a class="links" href="{{ url_for('static',filename='pgp.pub') }}">public
+                            key</a></small></li>
+            </ul>
+        </section>
+        <section>
+            <h3 id="head">Follow Me</h3>
+            <ul>
+                <li><a class="links" href="">Github</a></li>
+                <li><a class="links" href="">LinkedIn</a></li>
+                <li><a class="links" href="">Twitter</a></li>
+            </ul>
+        </section>
+    </aside>
+</div>
 {% endblock %}
